@@ -1,7 +1,12 @@
 import React from "react";
+import Menu from "./menu";
 
 const Body = () => {
-  return <div>Body</div>;
+  return (
+    <>
+      <Menu />
+    </>
+  );
 };
 
 export default Body;
