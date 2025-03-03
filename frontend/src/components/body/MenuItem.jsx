@@ -1,14 +1,16 @@
 import React from "react";
 import { Card, CardImg, CardImgOverlay, CardTitle, CardText } from "reactstrap";
 
-const MenuItem = ({ dish }) => {
+const MenuItem = ({ dish, onSelectDish }) => {
   return (
     <div>
       <Card
+        onClick={() => onSelectDish(dish)}
         inverse
         style={{
           padding: 10,
           margin: 10,
+          cursor: "pointer",
         }}
       >
         <CardImg
@@ -28,14 +30,11 @@ const MenuItem = ({ dish }) => {
               fontWeight: "bold",
               color: "black",
               textAlign: "center",
+              paddingTop: 25,
             }}
           >
             {dish.name}
           </CardTitle>
-          <CardText style={{ color: "#313131", textAlign: "center" }}>
-            {dish.description}
-          </CardText>
-          <CardText>#</CardText>
         </CardImgOverlay>
       </Card>
     </div>
