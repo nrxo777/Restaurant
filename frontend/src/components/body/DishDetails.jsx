@@ -10,7 +10,7 @@ const DishDetails = ({ dish }) => {
           alt="Card image cap"
           src={dish.image}
           style={{
-            height: 180,
+            height: "100%",
           }}
           top
           width="100%"
