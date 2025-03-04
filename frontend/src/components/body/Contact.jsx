@@ -13,15 +13,37 @@ export class Contact extends Component {
       contactType: "Tel.",
       message: "",
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handSubmit = this.handSubmit.bind(this);
   }
+
+  handleInputChange = (event) => {
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  };
+
   render() {
     return (
       <div className="container">
-        <div className="row row-content">
+        <div
+          className="row row-content"
+          style={{ paddingLeft: "20px", textAlign: "left" }}
+        >
           <div className="col-12">
             <h3>Send us your Feedback</h3>
-            <div className="col-12">
-              <Form>
+            <div className="col-12 col-md-7">
+              <Form onSubmit={this.handSubmit}>
                 <FormGroup row>
                   <Label htmlFor="firstname" md={2}>
                     First Name
@@ -32,6 +54,7 @@ export class Contact extends Component {
                       name="firstname"
                       placeholder="First Name"
                       value={this.state.firstname}
+                      onChange={this.handleInputChange}
                     />
                   </Col>
                 </FormGroup>
@@ -45,6 +68,7 @@ export class Contact extends Component {
                       name="lastname"
                       placeholder="Last Name"
                       value={this.state.lastname}
+                      onChange={this.handleInputChange}
                     />
                   </Col>
                 </FormGroup>
@@ -58,6 +82,7 @@ export class Contact extends Component {
                       name="telnum"
                       placeholder="Tel Number"
                       value={this.state.telnum}
+                      onChange={this.handleInputChange}
                     />
                   </Col>
                 </FormGroup>
@@ -71,6 +96,7 @@ export class Contact extends Component {
                       name="email"
                       placeholder="Email ID"
                       value={this.state.email}
+                      onChange={this.handleInputChange}
                     />
                   </Col>
                 </FormGroup>
@@ -82,8 +108,9 @@ export class Contact extends Component {
                           type="checkbox"
                           name="agree"
                           checked={this.state.agree}
+                          onChange={this.handleInputChange}
                         />{" "}
-                        <strong>May we contact you</strong>
+                        <strong>May we contact you?</strong>
                       </Label>
                     </FormGroup>
                   </Col>
@@ -92,6 +119,7 @@ export class Contact extends Component {
                       type="select"
                       name="contactType"
                       value={this.state.contactType}
+                      onChange={this.handleInputChange}
                     >
                       <option>Telephone</option>
                       <option>Email</option>
@@ -108,13 +136,14 @@ export class Contact extends Component {
                       name="message"
                       // placeholder="Your Feedback"
                       value={this.state.message}
+                      onChange={this.handleInputChange}
                       rows="12"
-                    />
+                    ></Input>
                   </Col>
                 </FormGroup>
                 <FormGroup>
                   <Col md={{ size: 10, offset: 2 }}>
-                    <Button type="submit" color="btn btn-secondary">
+                    <Button type="submit" color="btn btn-secondary btn-lg">
                       Send Feedback
                     </Button>
                   </Col>
