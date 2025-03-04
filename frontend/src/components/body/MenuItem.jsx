@@ -10,6 +10,7 @@ const MenuItem = ({ dish, onSelectDish }) => {
         style={{
           padding: 10,
           margin: 10,
+          width: 370,
           cursor: "pointer",
         }}
       >
@@ -18,6 +19,7 @@ const MenuItem = ({ dish, onSelectDish }) => {
           src={dish.image}
           style={{
             height: 270,
+            width: 350,
             opacity: 0.5,
           }}
           width="100%"

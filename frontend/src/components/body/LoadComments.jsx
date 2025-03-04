@@ -14,8 +14,8 @@ const LoadComments = ({ comments }) => {
   });
   return (
     <div>
-      {comments.map(() => {
-        return <div>{previewComments}</div>;
+      {comments.map((info) => {
+        return <div key={info.id}>{previewComments}</div>;
       })}
     </div>
   );
