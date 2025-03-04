@@ -6,6 +6,8 @@ import DishDetails from "./DishDetails";
 import { CardColumns, Modal, ModalFooter } from "reactstrap";
 
 const Menu = () => {
+  document.title = "Menu";
+
   const [dishes] = useState(DISHES);
   const [comments] = useState(COMMENTS);
   const [selectedDish, setSelectedDish] = useState(null);
